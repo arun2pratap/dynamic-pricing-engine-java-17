@@ -1,6 +1,5 @@
 package org.sample.pricing.client;
 
-import lombok.RequiredArgsConstructor;
 import org.sample.pricing.dataModel.CompetitorRate;
 import org.sample.pricing.dataModel.Hotel;
 import org.sample.pricing.dataModel.MarketDemands;
@@ -21,6 +20,7 @@ public class SubscriberDataService {
     public SubscriberDataService(HotelService hotelService){
         this.hotelService = hotelService;
     }
+
     public List<CompetitorRate> getCompetitorRates(String hotelName, LocalDate checkIn, LocalDate checkOut) {
         Hotel hotel = hotelService.getHotel(hotelName);
         return hotel.competitors().stream().
