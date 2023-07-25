@@ -1,4 +1,4 @@
-package org.sample.dynamicpricing;
+package org.sample.pricing;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,10 +7,10 @@ import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-class DynamicPricingEngineTest {
+class PricingEngineTest {
 
     @InjectMocks
-    private DynamicPricingEngine dynamicPricingEngine;
+    private PricingEngine pricingEngine;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -18,7 +18,7 @@ class DynamicPricingEngineTest {
 
     @Test
     void getPrice() {
-        HotePrice price = dynamicPricingEngine.getPrice();
+        HotePrice price = pricingEngine.getPrice();
         assertNull(price);
     }
 }
