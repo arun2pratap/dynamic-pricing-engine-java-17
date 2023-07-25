@@ -1,7 +1,7 @@
 package org.sample.pricing.ip;
 
-import java.util.Map;
+import org.sample.pricing.dataModel.PriceRequestDto;
 
-public interface PricingStrategy {
-    double calculatePrice(double basePrice, Map<String, Object> additionalData);
+public sealed interface PricingStrategy permits DynamicPricingStrategy {
+    double calculatePrice(PriceRequestDto priceRequestDto);
 }

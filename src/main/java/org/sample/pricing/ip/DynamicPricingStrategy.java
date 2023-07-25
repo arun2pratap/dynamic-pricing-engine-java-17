@@ -1,14 +1,27 @@
 package org.sample.pricing.ip;
 
+import lombok.RequiredArgsConstructor;
+import org.sample.pricing.client.SubscriberDataService;
+import org.sample.pricing.dataModel.CompetitorRate;
+import org.sample.pricing.dataModel.MarketDemands;
+import org.sample.pricing.dataModel.PriceRequestDto;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
-public class DynamicPricingStrategy implements PricingStrategy {
+@RequiredArgsConstructor
+public final class DynamicPricingStrategy implements PricingStrategy {
+
+    private final SubscriberDataService subscriberDataService;
     @Override
-    public double calculatePrice(double basePrice, Map<String, Object> additionalData) {
-        double dynamicFactor = 1.2;
+    public double calculatePrice(PriceRequestDto priceRequestDto) {
+        List<CompetitorRate> competitorRates = subscriberDataService.getCompetitorRates(priceRequestDto.hotelName(), priceRequestDto.checkIn(), priceRequestDto.checkOut());
+        List<MarketDemands> marketDemands = subscriberDataService.getMarketDemands(priceRequestDto.hotelName(), priceRequestDto.checkIn(), priceRequestDto.checkOut());
         return basePrice * dynamicFactor;
     }
 }
