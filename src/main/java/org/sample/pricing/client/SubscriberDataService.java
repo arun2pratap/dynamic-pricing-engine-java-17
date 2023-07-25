@@ -36,9 +36,9 @@ public class SubscriberDataService {
 
     private List<CompetitorRate> getCompetitor(LocalDate checkIn, LocalDate checkOut, String competitor){
         return switch (competitor){
-            case "Hyatt" -> List.of(new CompetitorRate(LocalDate.parse("2023-01-01"), 10D, 1));
-            case "Mariott" -> List.of(new CompetitorRate(LocalDate.parse("2023-01-01"), 10D, 1));
-            case "Conrad" -> List.of(new CompetitorRate(LocalDate.parse("2023-01-01"), 10D, -1));
+            case "Hyatt" -> List.of(new CompetitorRate(LocalDate.parse("2023-01-01"), 700D, 1));
+            case "Mariott" -> List.of(new CompetitorRate(LocalDate.parse("2023-01-01"), 910D, 1));
+            case "Conrad" -> List.of(new CompetitorRate(LocalDate.parse("2023-01-01"), 820D, -1));
             default -> Collections.emptyList();
         };
     }

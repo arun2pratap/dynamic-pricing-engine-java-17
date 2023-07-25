@@ -24,6 +24,7 @@ public class PricingEngine {
             return switch (d){
                 case "Hyatt","Conrad" -> 50D;
                 case "Marriott" -> 70D;
+                default -> 0D;
         };
         };
         return pricingStrategy.calculatePrice(priceRequestDto,

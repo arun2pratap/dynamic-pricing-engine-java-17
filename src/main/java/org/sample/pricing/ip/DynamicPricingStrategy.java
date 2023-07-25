@@ -21,10 +21,11 @@ public final class DynamicPricingStrategy implements PricingStrategy {
     private static final String WEIGHTED_AVG_COMPETITOR_RATE = "weightedAvgCompetitorRate";
     private static final String AVG_CORRELATION_WEIGHT = "avgCorrelationWeight";
     private final SubscriberDataService subscriberDataService;
-    private HotelService hotelService;
+    private final HotelService hotelService;
     @Autowired
-    public DynamicPricingStrategy(SubscriberDataService subscriberDataService){
+    public DynamicPricingStrategy(SubscriberDataService subscriberDataService, HotelService hotelService){
         this.subscriberDataService = subscriberDataService;
+        this.hotelService = hotelService;
     }
 
     @Override

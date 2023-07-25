@@ -22,7 +22,7 @@ public class PricingController {
     }
     @GetMapping("/calculate")
     public ResponseEntity<String> calculateFinalPrice(@RequestBody PriceRequestDto priceRequestDto) {
-        double finalPrice = pricingEngine.calculateFinalPrice(priceRequestDto);
+        double finalPrice = pricingEngine.calculateFinalPriceForWalkIn(priceRequestDto);
         NumberFormat fmt1 = NumberFormat.getCompactNumberInstance(Locale.US, NumberFormat.Style.SHORT);
         fmt1.setMaximumFractionDigits(2);
         var text = """
