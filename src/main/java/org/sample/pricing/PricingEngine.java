@@ -1,5 +1,6 @@
 package org.sample.pricing;
 
+import org.sample.pricing.dataModel.PriceRequestDto;
 import org.sample.pricing.ip.PricingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class PricingEngine {
         this.pricingStrategy = pricingStrategy;
     }
 
-    public double calculateFinalPrice(double basePrice, Map<String, Object> additionalData) {
-        return pricingStrategy.calculatePrice(basePrice, additionalData);
+    public double calculateFinalPrice(PriceRequestDto priceRequestDto) {
+        return pricingStrategy.calculatePrice(priceRequestDto);
     }
 }

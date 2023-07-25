@@ -1,5 +1,6 @@
 package org.sample.pricing.persist;
 
+import lombok.experimental.UtilityClass;
 import org.sample.pricing.dataModel.Hotel;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ public class HotelService {
         return switch (name){
             case "Mariott" -> new Hotel("Mariott", 100, 52.0, Collections.singletonList("Hyatt"));
             case "Hyatt" -> new Hotel("Hyatt", 90, 42.0, Collections.singletonList("Mariott"));
-            default -> new Hotel();
+            default -> new Hotel("Conrad", 100, 52.0, Collections.singletonList("Hyatt"));
         };
     }
 }
